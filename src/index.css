@@ -1,12 +1,14 @@
+/* Tailwind base */
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
+/* Simple globals */
+* { box-sizing: border-box; }
+html, body, #root { height: 100%; }
 body {
-  background-image: url('/images/hero-medical.png'); /* ✅ from public/images/ */
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-attachment: fixed;
-  
+  margin: 0;
+  background: #f9fafb;
+  color: #0f172a;
+  font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, Noto Sans, "Apple Color Emoji", "Segoe UI Emoji";
 }

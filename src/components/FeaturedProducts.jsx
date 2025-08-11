@@ -1,4 +1,8 @@
-import React from 'react';
+import React from 'react'
+
+// Import images from src/assets
+import bedImg from '../assets/bed-electric.png'
+import lightImg from '../assets/surgical-light.png'
 
 const FeaturedProducts = () => {
   const products = [
@@ -6,41 +10,29 @@ const FeaturedProducts = () => {
       id: 1,
       name: 'Electric Hospital Bed',
       description: '3-function automatic bed with remote adjustability.',
-      image: '/images/bed-electric.png',
+      image: bedImg,
     },
     {
       id: 2,
       name: 'Surgical Operating Light',
       description: 'Ceiling-mounted LED light with shadowless clarity.',
-      image: '/images/surgical-light.png',
+      image: lightImg,
     },
-    {
-      id: 3,
-      name: 'ECG Machine – 3/6/12 Lead',
-      description: 'Portable ECG with printer and digital screen.',
-      image: '/images/ecg-machine.png',
-    },
-  ];
+  ]
 
   return (
-    <section className="bg-white py-14 px-4 text-center">
-      <h2 className="text-3xl font-bold text-blue-800 mb-10">Featured Products</h2>
-
-      <div className="flex flex-col md:flex-row gap-10 justify-center items-center max-w-6xl mx-auto">
-        {products.map((product) => (
-          <div key={product.id} className="max-w-xs">
-            <img
-              src={product.image}
-              alt={product.name}
-              className="mx-auto h-40 object-contain mb-4"
-            />
-            <h3 className="text-lg font-semibold text-gray-800">{product.name}</h3>
-            <p className="text-sm text-gray-600">{product.description}</p>
+    <section className="grid gap-6 sm:grid-cols-2">
+      {products.map(({ id, name, description, image }) => (
+        <article key={id} className="rounded-2xl shadow-sm overflow-hidden border bg-white">
+          <img src={image} alt={name} className="w-full h-56 object-cover" />
+          <div className="p-4">
+            <h3 className="font-semibold text-lg">{name}</h3>
+            <p className="text-sm text-gray-600 mt-1">{description}</p>
           </div>
-        ))}
-      </div>
+        </article>
+      ))}
     </section>
-  );
-};
+  )
+}
 
-export default FeaturedProducts;
+export default FeaturedProducts
